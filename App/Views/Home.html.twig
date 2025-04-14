@@ -1,0 +1,23 @@
+{% extends "Layouts/Default.html.twig" %}
+{% block content %}
+    <form
+            action="/aquecimento"
+            method="post"
+            class="mx-auto"
+    >
+        <h1>Microondas!</h1>
+        <div class="mb-3">
+            <label for="tempo" class="form-label">Tempo</label>
+            <input required type="number" class="form-control" name="tempo" id="tempo"/>
+        </div>
+        <div class="mb-3">
+            <label for="potencia" class="form-label">Potência</label>
+            <input type="number" class="form-control" name="potencia" id="potencia"/>
+        </div>
+        <div class="mb-0">
+            <button type="submit" class="btn btn-success">
+                Enviar
+            </button>
+        </div>
+    </form>
+{% endblock %}
