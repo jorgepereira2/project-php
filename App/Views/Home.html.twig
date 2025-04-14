@@ -1,23 +1,236 @@
 {% extends "Layouts/Default.html.twig" %}
 {% block content %}
-    <form
-            action="/aquecimento"
-            method="post"
-            class="mx-auto"
+    <div
+            class="flex-coluna mb-3"
     >
-        <h1>Microondas!</h1>
-        <div class="mb-3">
-            <label for="tempo" class="form-label">Tempo</label>
-            <input required type="number" class="form-control" name="tempo" id="tempo"/>
+        <div
+                class="flex-linha"
+                style="border: 2px solid #000; width: 500px; height: 250px;"
+        >
+            <div
+                    id="microondas"
+                    class="flex-linha-item forno-desligado"
+                    style="flex: 65%; padding: 2rem;"
+            >
+
+            </div>
+            <div
+                    class="flex-coluna"
+                    style="flex: 35%; border-left: 2px solid #000; padding: 1rem; background: #000; border-left: 1px solid #ccc;"
+            >
+                <div
+                        id="timer"
+                        class="flex-linha-item flex-linha-center"
+                        style="border: 1px solid #ccc; height: 50px; color: #88f613; font-size: 1.5rem; font-weight: bold;"
+                >
+                    End
+                </div>
+                <div
+                        class="flex-coluna flex-linha-item flex-linha-flex"
+                        style="margin-top: 1rem; border: 1px solid #ccc; padding: .5rem;"
+                >
+                    <div
+                            class="flex-linha flex-linha-flex"
+                            style="margin-bottom: .5rem;"
+                    >
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            1
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            2
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            3
+                        </button>
+                    </div>
+                    <div
+                            class="flex-linha flex-linha-flex"
+                            style="margin-bottom: .5rem;"
+                    >
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            4
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            5
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            6
+                        </button>
+                    </div>
+                    <div
+                            class="flex-linha flex-linha-flex"
+                            style="margin-bottom: .5rem;"
+                    >
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            7
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            8
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            9
+                        </button>
+                    </div>
+                    <div
+                            class="flex-linha flex-linha-flex"
+                            style="margin-bottom: 0;"
+                    >
+                        <button
+                                onClick="Cancelar(myTimer)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: 1rem; font-weight: bold; padding: 0; border: 1px solid #ccc;"
+                        >
+                            <i class="fa-regular fa-circle-xmark">
+
+                            </i>
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
+                        >
+                            0
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                onClick="Ligar(myTimer)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: 1rem; font-weight: bold; padding: 0; border: 1px solid #ccc;"
+                        >
+                            <i class="fa-regular fa-circle-play">
+
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="potencia" class="form-label">Potência</label>
-            <input type="number" class="form-control" name="potencia" id="potencia"/>
-        </div>
-        <div class="mb-0">
-            <button type="submit" class="btn btn-success">
-                Enviar
-            </button>
-        </div>
-    </form>
+        {# <form #}
+        {# action="/aquecimento" #}
+        {# method="post" #}
+        {# class="mx-auto" #}
+        {# > #}
+        {# <h1>Microondas!</h1> #}
+        {# <div class="mb-3"> #}
+        {# <label for="tempo" class="form-label">Tempo</label> #}
+        {# <input required type="number" class="form-control" name="tempo" id="tempo"/> #}
+        {# </div> #}
+        {# <div class="mb-3"> #}
+        {# <label for="potencia" class="form-label">Potência</label> #}
+        {# <input type="number" class="form-control" name="potencia" id="potencia"/> #}
+        {# </div> #}
+        {# <div class="mb-0"> #}
+        {# <button type="submit" class="btn btn-success"> #}
+        {# Enviar #}
+        {# </button> #}
+        {# </div> #}
+        {# </form> #}
+    </div>
+    <script type="application/javascript">
+        var c = 0;
+        var myTimer;
+
+        function Ligar() {
+            document.getElementById("microondas").classList.remove('forno-desligado');
+            document.getElementById("microondas").classList.add('forno-ligado');
+            myTimer = setInterval(Contador, 1000)
+        }
+
+        function Cancelar() {
+            clearInterval(myTimer)
+        }
+
+        function formataSegundos(s) {
+            function duas_casas(numero) {
+                if (numero <= 9) {
+                    numero = "0" + numero;
+                }
+                return numero;
+            }
+
+            hora = duas_casas(Math.round(s / 3600));
+            minuto = duas_casas(Math.round((s % 3600) / 60));
+            segundo = duas_casas((s % 3600) % 60);
+            formatado = ((hora > 0) ? hora + ":" : '') + minuto + ":" + segundo;
+            return formatado;
+        }
+
+        function Contador() {
+            var total = ++c;
+            document.getElementById("timer").innerHTML = total <= 60 ? total : formataSegundos(total);
+        }
+    </script>
 {% endblock %}
