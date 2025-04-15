@@ -11,7 +11,7 @@ use Dotenv\Dotenv;
 use Laminas\Diactoros\ServerRequestFactory;
 
 set_exception_handler(function (Throwable $ex) {
-    ExceptionLoggerController::log($ex);
+    ExceptionLoggerController::store($ex);
     http_response_code(500);
     echo "Erro interno no servidor. Consulte os logs.";
     exit;

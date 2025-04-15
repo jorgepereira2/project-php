@@ -14,7 +14,7 @@ class DatabaseConnectionFactory
                 \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
             ]);
             return $pdo;
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             throw new \RuntimeException("Erro na conexão com o banco de dados: " . $e->getMessage());
         }
     }

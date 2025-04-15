@@ -5,6 +5,9 @@ composer install
 ```bash
 Restaure o arquivo 'avaliacao.sql' em seu banco de dados MySQL
 ```
+```bash
+Configure o arquivo .env com os dados do banco local
+```
 
 ## Rota pública
 

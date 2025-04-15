@@ -8,7 +8,7 @@ use Throwable;
 
 class ExceptionLoggerController
 {
-    public static function log(Throwable $ex)
+    public static function store(Throwable $ex)
     {
         $log = [
             'data' => date('Y-m-d H:i:s'),
