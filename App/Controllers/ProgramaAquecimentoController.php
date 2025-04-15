@@ -33,6 +33,10 @@ class ProgramaAquecimentoController extends Controller implements ControllerCrud
         try {
             $conexao = DatabaseConnectionFactory::createMySQLConnection();
 
+            if (!isset($_POST['nome']) || $_POST['nome'] == null) {
+                throw new \Exception("Campo 'nome' é obrigatório!");
+            }
+
             $nome = $_POST['nome'];
             $alimento = $_POST['alimento'];
             $tempo = $_POST['tempo'];
