@@ -35,6 +35,12 @@ class ProgramaAquecimentoController extends Controller implements ControllerCrud
 
             if (!isset($_POST['nome']) || $_POST['nome'] == null) {
                 throw new \Exception("Campo 'nome' é obrigatório!");
+            } elseif (!isset($_POST['alimento']) || $_POST['alimento'] == null) {
+                throw new \Exception("Campo 'alimento' é obrigatório!");
+            } elseif (!isset($_POST['potencia']) || $_POST['potencia'] == null) {
+                throw new \Exception("Campo 'potencia' é obrigatório!");
+            } elseif (!array_key_exists('instrucoes', $_POST)) {
+                throw new \Exception("Campo 'potencia' é obrigatório!");
             }
 
             $nome = $_POST['nome'];
@@ -45,32 +51,6 @@ class ProgramaAquecimentoController extends Controller implements ControllerCrud
 
             $stmt = $conexao->prepare("INSERT INTO programas (nome, alimento, tempo, potencia, instrucoes) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([$nome, $alimento, $tempo, $potencia, $instrucoes]);
-
-            return json_encode([
-                'error' => false,
-                'message' => "OK",
-            ]);
-        } catch (\Exception $e) {
-            return json_encode([
-                'error' => true,
-                'message' => $e->getMessage()
-            ]);
-        }
-    }
-
-    public static function update($id)
-    {
-        try {
-            $conexao = DatabaseConnectionFactory::createMySQLConnection();
-
-            $nome = $_POST['nome'];
-            $alimento = $_POST['alimento'];
-            $tempo = $_POST['tempo'];
-            $potencia = $_POST['potencia'];
-            $instrucoes = $_POST['instrucoes'];
-
-            $stmt = $conexao->prepare("UPDATE programas SET nome = ?, alimento = ?, tempo = ?, potencia = ?, instrucoes = ? WHERE id = ?");
-            $stmt->execute([$nome, $alimento, $tempo, $potencia, $instrucoes, $id]);
 
             return json_encode([
                 'error' => false,

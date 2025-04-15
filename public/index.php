@@ -32,12 +32,6 @@ $map->post('aquecimento.programa.delete', '/aquecimento/programa/{id}/delete', f
     echo ProgramaAquecimentoController::delete($params['id']);
 });
 
-$map->get('gerar.token', '/gerar/token', function ($params) {
-    $dados = "JORGE123";
-    $senha = password_hash('JJS' . $dados, PASSWORD_DEFAULT);
-    echo "SENHA: $senha";
-});
-
 // Login
 $map->post('login', '/login', function ($params) {
     $email = $_POST['email'] ?? '';
@@ -67,15 +61,6 @@ $map->post('login', '/login', function ($params) {
         "erro" => false,
         "message" => "Login bem-sucedido",
         "token" => $usuario['token']
-    ]);
-    exit;
-});
-$map->get('api', '/api', function ($params, $request, $usuario) {
-    http_response_code(200);
-    echo json_encode([
-        "erro" => false,
-        "message" => "Olá, " . $usuario['nome'] . "! Você acessou uma rota api.",
-        "usuario_id" => $usuario['id']
     ]);
     exit;
 });
