@@ -13,7 +13,9 @@ Configure o arquivo .env com os dados do banco local
 
 Responsável pela abertura do site
 
+```bash
 /
+```
 
 
 ## Rotas privadas
