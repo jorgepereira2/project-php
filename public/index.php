@@ -3,11 +3,21 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\AquecimentoController;
+use App\Controllers\ExceptionLoggerController;
 use App\Controllers\HomeController;
 use App\Controllers\ProgramaAquecimentoController;
 use Aura\Router\RouterContainer;
 use Dotenv\Dotenv;
 use Laminas\Diactoros\ServerRequestFactory;
+
+set_exception_handler(function (Throwable $ex) {
+    ExceptionLoggerController::log($ex);
+    http_response_code(500);
+    echo "Erro interno no servidor. Consulte os logs.";
+    exit;
+});
+
+// throw new Exception("Força erro");
 
 $dotenv = Dotenv::createImmutable(dirname(__FILE__, 2));
 $dotenv->load();
@@ -39,7 +49,10 @@ $map->post('login', '/login', function ($params) {
 
     if (!$email || !$senha) {
         http_response_code(400);
-        echo json_encode(["erro" => "E-mail e senha obrigatórios"]);
+        echo json_encode([
+            "error" => true,
+            "message" => "E-mail e senha obrigatórios",
+        ]);
         return;
     }
 
@@ -47,7 +60,7 @@ $map->post('login', '/login', function ($params) {
     if (!$usuario) {
         http_response_code(401);
         echo json_encode([
-            "erro" => true,
+            "error" => true,
             "message" => "Credenciais inválidas",
             "params" => [
                 'email' => $email,
@@ -58,7 +71,7 @@ $map->post('login', '/login', function ($params) {
     }
 
     echo json_encode([
-        "erro" => false,
+        "error" => false,
         "message" => "Login bem-sucedido",
         "token" => $usuario['token']
     ]);
@@ -67,7 +80,7 @@ $map->post('login', '/login', function ($params) {
 $map->post('api.aquecimento', '/api/aquecimento', function ($params, $request, $usuario) {
     http_response_code(200);
     echo json_encode([
-        "erro" => false,
+        "error" => false,
         "message" => "Olá, " . $usuario['nome'] . "! Você acessou uma rota api.",
         "body" => json_decode(AquecimentoController::store(), true),
     ]);
@@ -76,7 +89,7 @@ $map->post('api.aquecimento', '/api/aquecimento', function ($params, $request, $
 $map->post('api.aquecimento.programa.show', '/api/aquecimento/programa', function ($params, $request, $usuario) {
     http_response_code(200);
     echo json_encode([
-        "erro" => false,
+        "error" => false,
         "message" => "Olá, " . $usuario['nome'] . "! Você acessou uma rota api.",
         "body" => json_decode(ProgramaAquecimentoController::show(), true),
     ]);
@@ -85,7 +98,7 @@ $map->post('api.aquecimento.programa.show', '/api/aquecimento/programa', functio
 $map->post('api.aquecimento.programa.store', '/api/aquecimento/programa/store', function ($params, $request, $usuario) {
     http_response_code(200);
     echo json_encode([
-        "erro" => false,
+        "error" => false,
         "message" => "Olá, " . $usuario['nome'] . "! Você acessou uma rota api.",
         "body" => json_decode(ProgramaAquecimentoController::store(), true),
     ]);
@@ -94,7 +107,7 @@ $map->post('api.aquecimento.programa.store', '/api/aquecimento/programa/store', 
 $map->post('api.aquecimento.programa.delete', '/api/aquecimento/programa/{id}/delete', function ($params, $request, $usuario) {
     http_response_code(200);
     echo json_encode([
-        "erro" => false,
+        "error" => false,
         "message" => "Olá, " . $usuario['nome'] . "! Você acessou uma rota api.",
         "body" => json_decode(ProgramaAquecimentoController::delete($params['id']), true),
     ]);
@@ -124,7 +137,7 @@ if (strpos($route->name, 'api') !== false) {
     if (!$usuario) {
         http_response_code(401);
         echo json_encode([
-            "erro" => true,
+            "error" => true,
             "message" => "Token inválido!",
         ]);
         exit;

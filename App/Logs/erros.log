@@ -1,0 +1,33 @@
+{
+    "data": "2025-04-15 06:07:25",
+    "mensagem": "Força erro",
+    "arquivo": "J:\\xampp81\\htdocs\\projetos\\avaliacao\\public\\index.php",
+    "linha": 154,
+    "stacktrace": "#0 {main}",
+    "request_uri": "\/",
+    "method": "GET",
+    "ip": "::1"
+}
+--------------------------------------------------------------------------------
+{
+    "data": "2025-04-15 06:07:25",
+    "mensagem": "Força erro",
+    "arquivo": "J:\\xampp81\\htdocs\\projetos\\avaliacao\\public\\index.php",
+    "linha": 154,
+    "stacktrace": "#0 {main}",
+    "request_uri": "\/aquecimento\/programa",
+    "method": "GET",
+    "ip": "::1"
+}
+--------------------------------------------------------------------------------
+{
+    "data": "2025-04-15 06:07:47",
+    "mensagem": "Força erro",
+    "arquivo": "J:\\xampp81\\htdocs\\projetos\\avaliacao\\public\\index.php",
+    "linha": 20,
+    "stacktrace": "#0 {main}",
+    "request_uri": "\/",
+    "method": "GET",
+    "ip": "::1"
+}
+--------------------------------------------------------------------------------
