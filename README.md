@@ -1,4 +1,4 @@
-## Setup via Docker
+## Setup
 ```bash
 composer install
 ```
