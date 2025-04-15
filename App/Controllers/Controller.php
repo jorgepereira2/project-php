@@ -24,8 +24,7 @@ abstract class Controller
 
     protected final static function params(string $name)
     {
-        $params = RouterController::getRequest();
-
+        $params = json_decode(file_get_contents('php://input'), true);
         if (!isset($params[$name]))
             return null;
         return $params[$name];

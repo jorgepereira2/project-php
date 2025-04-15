@@ -5,11 +5,11 @@
     >
         <div
                 class="flex-linha"
-                style="border: 2px solid #000; width: 500px; height: 250px;"
+                style="border: 2px solid #000; width: 700px; height: 300px;"
         >
             <div
                     id="microondas"
-                    class="flex-linha-item forno-desligado"
+                    class="flex-linha-item forno forno-desligado"
                     style="flex: 65%; padding: 2rem;"
             >
 
@@ -21,20 +21,116 @@
                 <div
                         id="timer"
                         class="flex-linha-item flex-linha-center"
-                        style="border: 1px solid #ccc; height: 50px; color: #88f613; font-size: 1.5rem; font-weight: bold;"
+                        style="border: 1px solid #ccc; height: 50px; color: #88f613; font-size: 1rem; font-weight: bold;"
                 >
                     End
                 </div>
                 <div
+                        class="flex-coluna"
+                        style="margin-top: .5rem; border: 1px solid #ccc; color: #88f613; font-size: 1rem; font-weight: bold; padding: .5rem;"
+                >
+                    <label
+                            for="potencia"
+                            class="form-label"
+                            style="color: #ccc; font-size: .6rem; font-weight: bold;"
+                    >
+                        Potência
+                    </label>
+                    <div
+                            class="flex-linha flex-linha-flex"
+                            style="margin-bottom: .5rem;"
+                    >
+                        <div
+                                id="potenciaRange1"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            1
+                        </div>
+                        <div
+                                id="potenciaRange2"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            2
+                        </div>
+                        <div
+                                id="potenciaRange3"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            3
+                        </div>
+                        <div
+                                id="potenciaRange4"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            4
+                        </div>
+                        <div
+                                id="potenciaRange5"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            5
+                        </div>
+                        <div
+                                id="potenciaRange6"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            6
+                        </div>
+                        <div
+                                id="potenciaRange7"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            7
+                        </div>
+                        <div
+                                id="potenciaRange8"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            8
+                        </div>
+                        <div
+                                id="potenciaRange9"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            9
+                        </div>
+                        <div
+                                id="potenciaRange10"
+                                class="flex-linha-item flex-linha-center flex-linha-flex forms-range forms-range form-range-ativo"
+                                style="color: #ccc; font-size: .7rem; padding: 0;"
+                        >
+                            10
+                        </div>
+                    </div>
+                    <input
+                            type="range"
+                            class="form-range"
+                            value="10"
+                            min="1"
+                            max="10"
+                            id="potencia"
+                    />
+                </div>
+                <div
                         class="flex-coluna flex-linha-item flex-linha-flex"
-                        style="margin-top: 1rem; border: 1px solid #ccc; padding: .5rem;"
+                        style="margin-top: .5rem; border: 1px solid #ccc; padding: .5rem;"
                 >
                     <div
                             class="flex-linha flex-linha-flex"
                             style="margin-bottom: .5rem;"
                     >
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(1)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             1
@@ -46,7 +142,8 @@
 
                         </div>
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(2)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             2
@@ -58,7 +155,8 @@
 
                         </div>
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(3)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             3
@@ -69,7 +167,8 @@
                             style="margin-bottom: .5rem;"
                     >
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(4)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             4
@@ -81,7 +180,8 @@
 
                         </div>
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(5)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             5
@@ -93,7 +193,8 @@
 
                         </div>
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(6)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             6
@@ -104,7 +205,8 @@
                             style="margin-bottom: .5rem;"
                     >
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(7)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             7
@@ -116,7 +218,8 @@
 
                         </div>
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(8)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             8
@@ -128,7 +231,8 @@
 
                         </div>
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(9)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             9
@@ -136,17 +240,13 @@
                     </div>
                     <div
                             class="flex-linha flex-linha-flex"
-                            style="margin-bottom: 0;"
+                            style="margin-bottom: .5rem;"
                     >
-                        <button
-                                onClick="Cancelar(myTimer)"
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
-                                style="color: #ccc; font-size: 1rem; font-weight: bold; padding: 0; border: 1px solid #ccc;"
+                        <div
+                                class="flex-linha-item flex-linha-center flex-linha-flex"
                         >
-                            <i class="fa-regular fa-circle-xmark">
 
-                            </i>
-                        </button>
+                        </div>
                         <div
                                 class="flex-linha-item flex-linha-center"
                                 style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
@@ -154,7 +254,8 @@
 
                         </div>
                         <button
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                onClick="setTime(0)"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex forms-buttons"
                                 style="color: #ccc; font-size: .8rem; font-weight: bold; padding: 0; border-bottom: 1px solid #ccc;"
                         >
                             0
@@ -165,72 +266,297 @@
                         >
 
                         </div>
-                        <button
-                                onClick="Ligar(myTimer)"
-                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
-                                style="color: #ccc; font-size: 1rem; font-weight: bold; padding: 0; border: 1px solid #ccc;"
+                        <div
+                                class="flex-linha-item flex-linha-center flex-linha-flex"
                         >
-                            <i class="fa-regular fa-circle-play">
 
-                            </i>
+                        </div>
+                    </div>
+                    <div
+                            class="flex-linha flex-linha-flex"
+                            style="margin-bottom: 0;"
+                    >
+                        <button
+                                id="btnCancelar"
+                                onClick="Cancelar()"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: 1rem; font-weight: bold; padding: .5rem 0; border: 1px solid #ccc;"
+                        >
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                id="btnPausar"
+                                onClick="Pausar()"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: 1rem; font-weight: bold; padding: .5rem 0; border: 1px solid #ccc;"
+                        >
+                            <i class="fa-solid fa-pause"></i>
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                id="btnLigar"
+                                onClick="Ligar()"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: 1rem; font-weight: bold; padding: .5rem 0; border: 1px solid #ccc;"
+                        >
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                        <div
+                                class="flex-linha-item flex-linha-center"
+                                style="margin-left: .5rem; margin-right: .5rem; border-left: 1px solid #ccc;"
+                        >
+
+                        </div>
+                        <button
+                                id="btnPreDefinicao"
+                                onClick="PreDefinicao()"
+                                class="btn flex-linha-item flex-linha-center flex-linha-flex"
+                                style="color: #ccc; font-size: 1rem; font-weight: bold; padding: .5rem 0; border: 1px solid #ccc;"
+                        >
+                            <i class="fa-solid fa-gear"></i>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        {# <form #}
-        {# action="/aquecimento" #}
-        {# method="post" #}
-        {# class="mx-auto" #}
-        {# > #}
-        {# <h1>Microondas!</h1> #}
-        {# <div class="mb-3"> #}
-        {# <label for="tempo" class="form-label">Tempo</label> #}
-        {# <input required type="number" class="form-control" name="tempo" id="tempo"/> #}
-        {# </div> #}
-        {# <div class="mb-3"> #}
-        {# <label for="potencia" class="form-label">Potência</label> #}
-        {# <input type="number" class="form-control" name="potencia" id="potencia"/> #}
-        {# </div> #}
-        {# <div class="mb-0"> #}
-        {# <button type="submit" class="btn btn-success"> #}
-        {# Enviar #}
-        {# </button> #}
-        {# </div> #}
-        {# </form> #}
     </div>
+    <div class="modal fade" id="modalPreDefinicao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPreDefinicaoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalPreDefinicaoLabel">
+                        Programas de aquecimento pré-definidos
+                    </h1>
+                </div>
+                <div class="modal-body">
+                    {% for preDefinido in preDefinidos %}
+                        <div
+                                style="padding: .5rem; {{ loop.index > 0 ? 'margin-top: .5rem;' : '' }}"
+                                class="card flex-linha"
+                        >
+                            {# {{ loop.index }} #}
+                            <div
+                                    class="flex-coluna flex-coluna-left flex-linha-flex"
+                            >
+                                <div
+                                        style="font-size: 1rem; font-weight: bold;"
+                                >
+                                    {{ preDefinido.nome|e }}
+                                </div>
+                                <div
+                                        style="font-size: .8rem;"
+                                >
+                                    Alimento: <span style="font-weight: 500;">{{ preDefinido.alimento|e }}</span>
+                                </div>
+                                <div
+                                        style="font-size: .8rem;"
+                                >
+                                    Tempo: <span style="font-weight: 500;">{{ preDefinido.tempo|e }}</span>
+                                </div>
+                                <div
+                                        style="font-size: .8rem;"
+                                >
+                                    Potência: <span style="font-weight: 500;">{{ preDefinido.potencia|e }}</span>
+                                </div>
+                                <div
+                                        style="font-size: .8rem;"
+                                >
+                                    Instruções: <span style="font-weight: 500;">{{ preDefinido.instrucoes|e }}</span>
+                                </div>
+                            </div>
+                            <button
+                                    class="btn flex-linha-item flex-linha-center"
+                                    onClick="LigarPredefinicao({{ preDefinido.tempoSegundos }},{{ preDefinido.potencia }})"
+                            >
+                                <i
+                                        class="fa-regular fa-circle-check"
+                                        style="font-size: 2rem; color: #4CAF50;"
+                                >
+
+                                </i>
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="application/javascript">
         var c = 0;
-        var myTimer;
+        var potencia = 10;
+        var timer = "";
+        var myTimer = null;
+        var rangeInput = document.getElementById("potencia");
+
+        const modalPreDefinicao = new bootstrap.Modal('#modalPreDefinicao', {
+            keyboard: false,
+        })
+
+        rangeInput.addEventListener("input", function () {
+            var potencia = rangeInput.value;
+            defineRanger(potencia);
+        });
+
+        function defineRanger(potencia) {
+            var formsRanges = document.getElementsByClassName("forms-range");
+
+            for (let i = 0; i < formsRanges.length; i++) {
+                if (formsRanges[i] != undefined) {
+                    formsRanges[i].classList.remove('form-range-ativo');
+                }
+            }
+
+            var potenciaRange = document.getElementById("potenciaRange" + potencia);
+
+            if (potenciaRange != undefined) {
+                potenciaRange.classList.add('form-range-ativo');
+            }
+        }
+
+        function PreDefinicao() {
+            modalPreDefinicao.show();
+        }
+
+        function setPotencia() {
+            document.getElementById("timer").value;
+        }
+
+        function setTime(time) {
+            timer = timer + time.toString();
+            document.getElementById("timer").innerHTML = (timer < 60) ? timer : formataSegundos(timer);
+        }
 
         function Ligar() {
-            document.getElementById("microondas").classList.remove('forno-desligado');
-            document.getElementById("microondas").classList.add('forno-ligado');
-            myTimer = setInterval(Contador, 1000)
+            c += (timer > 0) ? timer : 30;
+            Start(c, potencia);
+        }
+
+        function LigarPredefinicao(dtempo, dpotencia) {
+            modalPreDefinicao.hide();
+
+            c = dtempo;
+            potencia = dpotencia;
+            rangeInput.value = dpotencia;
+            defineRanger(dpotencia);
+
+            Start(c, potencia, true, true);
+        }
+
+        function Start(tempo, potencia, desativarLigar = false, preDefinido = false) {
+            fetch("/aquecimento", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    tempo: tempo,
+                    potencia: potencia,
+                    preDefinido: preDefinido,
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        throw new Error(data.message);
+                    }
+                    if (myTimer === null) {
+                        myTimer = setInterval(Contador, 1000);
+                    }
+                    document.getElementById("microondas").classList.remove('forno-desligado');
+                    document.getElementById("microondas").classList.add('forno-ligado');
+                    document.getElementById('potencia').setAttribute("disabled", "disabled");
+                    document.getElementById('btnPreDefinicao').setAttribute("disabled", "disabled");
+
+                    var formsButtons = document.getElementsByClassName("forms-buttons");
+
+                    for (let i = 0; i < formsButtons.length; i++) {
+                        if (formsButtons[i] != undefined) {
+                            formsButtons[i].setAttribute("disabled", "disabled");
+                        }
+                    }
+
+                    if (desativarLigar == true) {
+                        document.getElementById('btnLigar').setAttribute("disabled", "disabled");
+                    }
+                })
+                .catch(error => {
+                    alert(error);
+                    Cancelar();
+                });
+        }
+
+        function Pausar() {
+            if (c == 0) {
+                Cancelar();
+            } else {
+                if (myTimer) {
+                    clearInterval(myTimer);
+                    myTimer = null;
+                } else {
+                    myTimer = setInterval(Contador, 1000);
+                }
+            }
         }
 
         function Cancelar() {
-            clearInterval(myTimer)
-        }
+            clearInterval(myTimer);
 
-        function formataSegundos(s) {
-            function duas_casas(numero) {
-                if (numero <= 9) {
-                    numero = "0" + numero;
+            myTimer = null;
+            c = 0;
+            timer = "";
+            potencia = 10;
+
+            rangeInput.value = 10;
+            defineRanger(10);
+
+            document.getElementById("microondas").classList.remove('forno-ligado');
+            document.getElementById("microondas").classList.add('forno-desligado');
+            document.getElementById("timer").innerHTML = "End";
+            document.getElementById('potencia').removeAttribute("disabled");
+            document.getElementById('btnLigar').removeAttribute("disabled");
+            document.getElementById('btnPreDefinicao').removeAttribute("disabled");
+
+            var formsButtons = document.getElementsByClassName("forms-buttons");
+
+            for (let i = 0; i < formsButtons.length; i++) {
+                if (formsButtons[i] != undefined) {
+                    formsButtons[i].removeAttribute("disabled");
                 }
-                return numero;
             }
-
-            hora = duas_casas(Math.round(s / 3600));
-            minuto = duas_casas(Math.round((s % 3600) / 60));
-            segundo = duas_casas((s % 3600) % 60);
-            formatado = ((hora > 0) ? hora + ":" : '') + minuto + ":" + segundo;
-            return formatado;
         }
 
         function Contador() {
-            var total = ++c;
-            document.getElementById("timer").innerHTML = total <= 60 ? total : formataSegundos(total);
+            var total = --c;
+            document.getElementById("timer").innerHTML = total;
+            document.getElementById("timer").innerHTML = (total < 60) ? total : formataSegundos(total);
+
+            if (total < 0) {
+                Cancelar();
+                document.getElementById("timer").innerHTML = "Concluído";
+            }
+        }
+
+        function formataSegundos(segundos) {
+            const minutos = Math.floor(segundos / 60);
+            const segundosRestantes = segundos % 60;
+            return `${minutos}:${segundosRestantes}`;
         }
     </script>
 {% endblock %}

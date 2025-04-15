@@ -9,7 +9,7 @@ class HomeController extends Controller implements ControllerViewInterface
     public static function index()
     {
         return self::view('Home', [
-            //
+            'preDefinidos' => AquecimentoController::aquecimentoPreDefinidos(),
         ]);
     }
 }
