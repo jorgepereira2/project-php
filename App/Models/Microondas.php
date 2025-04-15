@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Interfaces\MicroondasInterface;
-
 class Microondas
 {
     public $tempo;

@@ -336,55 +336,113 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="modalPreDefinicaoLabel">
-                        Programas de aquecimento pré-definidos
+                        Programas de aquecimento
                     </h1>
+                </div>
+                <div
+                        class="modal-body flex-linha"
+                        style="background: #EEE; font-size: .9rem; font-weight: bold;"
+                >
+                    <div
+                            class="flex-linha-item flex-linha-left flex-linha-flex"
+                    >
+                        Personalizados
+                    </div>
+                    <button
+                            type="button"
+                            onclick="togglePersonalizados()"
+                            class="btn btn-primary btn-sm flex-linha-item flex-linha-center"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+                <div
+                        id="addPersonalizados"
+                        class="modal-body hidden"
+                        style="background: #f9f9f9; font-size: .9rem;"
+                >
+                    <div class="flex-linha">
+                        <div class="mb-3 flex-coluna flex-linha-flex">
+                            <label for="formNome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" name="formNome" id="formNome">
+                        </div>
+                        <div class="mb-3 flex-coluna flex-linha-flex ml-3">
+                            <label for="formAlimento" class="form-label">Alimento</label>
+                            <input type="text" class="form-control" name="formAlimento" id="formAlimento">
+                        </div>
+                    </div>
+                    <div class="flex-linha">
+                        <div class="mb-3 flex-coluna flex-linha-flex">
+                            <label for="formPotencia" class="form-label">Potência</label>
+                            <input type="number" class="form-control" name="formPotencia" id="formPotencia">
+                            <small>
+                                Obs: Min. 1
+                            </small>
+                        </div>
+                        <div class="mb-3 flex-coluna flex-linha-flex ml-3">
+                            <label for="formTempo" class="form-label">Tempo</label>
+                            <input type="number" class="form-control" name="formTempo" id="formTempo">
+                            <small>
+                                Obs: Min. 1 e Max. 10
+                            </small>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formInstrucoes" class="form-label">Instruções</label>
+                        <textarea class="form-control" name="formInstrucoes" id="formInstrucoes" rows="2"></textarea>
+                    </div>
+                    <div class="flex-linha">
+                        <button
+                                class="btn btn-primary flex-linha-item flex-linha-flex flex-linha-center"
+                                onclick="criar()"
+                        >
+                            Criar
+                        </button>
+                        <button
+                                class="btn btn-danger flex-linha-item flex-linha-center ml-3"
+                                onclick="togglePersonalizados()"
+                        >
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+                <div
+                        class="modal-body"
+                >
+                    <div
+                            id="personalizados"
+                    >
+                        {# #}
+                    </div>
+                </div>
+                <div
+                        class="modal-body"
+                        style="background: #EEE; font-size: .9rem; font-weight: bold;"
+                >
+                    Pré-definidos
                 </div>
                 <div class="modal-body">
                     {% for preDefinido in preDefinidos %}
-                        <div
-                                style="padding: .5rem; {{ loop.index > 0 ? 'margin-top: .5rem;' : '' }}"
-                                class="card flex-linha"
-                        >
-                            {# {{ loop.index }} #}
-                            <div
-                                    class="flex-coluna flex-coluna-left flex-linha-flex"
-                            >
-                                <div
-                                        style="font-size: 1rem; font-weight: bold;"
-                                >
+                        <div style="padding: .5rem; {{ loop.index > 0 ? 'margin-top: .5rem;' : '' }}" class="card flex-linha">
+                            <div class="flex-coluna flex-coluna-left flex-linha-flex">
+                                <div style="font-size: 1rem; font-weight: bold;">
                                     {{ preDefinido.nome|e }}
                                 </div>
-                                <div
-                                        style="font-size: .8rem;"
-                                >
+                                <div style="font-size: .8rem;">
                                     Alimento: <span style="font-weight: 500;">{{ preDefinido.alimento|e }}</span>
                                 </div>
-                                <div
-                                        style="font-size: .8rem;"
-                                >
+                                <div style="font-size: .8rem;">
                                     Tempo: <span style="font-weight: 500;">{{ preDefinido.tempo|e }}</span>
                                 </div>
-                                <div
-                                        style="font-size: .8rem;"
-                                >
+                                <div style="font-size: .8rem;">
                                     Potência: <span style="font-weight: 500;">{{ preDefinido.potencia|e }}</span>
                                 </div>
-                                <div
-                                        style="font-size: .8rem;"
-                                >
+                                <div style="font-size: .8rem;">
                                     Instruções: <span style="font-weight: 500;">{{ preDefinido.instrucoes|e }}</span>
                                 </div>
                             </div>
-                            <button
-                                    class="btn flex-linha-item flex-linha-center"
-                                    onClick="LigarPredefinicao({{ preDefinido.tempoSegundos }},{{ preDefinido.potencia }})"
-                            >
-                                <i
-                                        class="fa-regular fa-circle-check"
-                                        style="font-size: 2rem; color: #4CAF50;"
-                                >
-
-                                </i>
+                            <button class="btn flex-linha-item flex-linha-center" onClick="LigarPredefinicao({{ preDefinido.tempoSegundos }},{{ preDefinido.potencia }})">
+                                <i class="fa-regular fa-circle-check" style="font-size: 2rem; color: #4CAF50;"></i>
                             </button>
                         </div>
                     {% endfor %}
@@ -558,5 +616,105 @@
             const segundosRestantes = segundos % 60;
             return `${minutos}:${segundosRestantes}`;
         }
+
+        function togglePersonalizados() {
+            document.getElementById('addPersonalizados').classList.toggle('hidden');
+        }
+
+        function carregar() {
+            fetch('/aquecimento/programa')
+                .then(res => res.json())
+                .then(dados => {
+                    const tbody = document.querySelector('#personalizados');
+                    tbody.innerHTML = '';
+
+                    dados.personalizados.forEach((personalizado, index) => {
+                        tbody.innerHTML += `
+                                          <div data-index="${index}" style="padding: .5rem; ${((index > 0) ? 'margin-top: .5rem;' : '')}" class="card flex-linha">
+                                            <div class="flex-coluna flex-coluna-left flex-linha-flex">
+                                                <div style="font-size: 1rem; font-weight: bold;">
+                                                    ${personalizado.nome}
+                                                </div>
+                                                <div style="font-size: .8rem;">
+                                                    Alimento: <span style="font-weight: 500;">${personalizado.alimento}</span>
+                                                </div>
+                                                <div style="font-size: .8rem;">
+                                                    Tempo: <span style="font-weight: 500;">${formataSegundos(personalizado.tempo)}</span>
+                                                </div>
+                                                <div style="font-size: .8rem;">
+                                                    Potência: <span style="font-weight: 500;">${personalizado.potencia}</span>
+                                                </div>
+                                                <div style="font-size: .8rem;">
+                                                    Instruções: <span style="font-weight: 500;">${personalizado.instrucoes}</span>
+                                                </div>
+                                            </div>
+                                            <button class="btn flex-linha-item flex-linha-center" onClick="LigarPredefinicao(${personalizado.tempo},${personalizado.potencia})">
+                                                <i class="fa-regular fa-circle-check" style="font-size: 2rem; color: #4CAF50;"></i>
+                                            </button>
+                                            <button class="btn flex-linha-item flex-linha-center" onClick="deletar(${personalizado.id})">
+                                                <i class="fa-solid fa-trash-can" style="font-size: 2rem; color: #ff0000;"></i>
+                                            </button>
+                                          </div>
+                                        `;
+                    });
+                });
+        }
+
+        function criar() {
+            const fnome = document.getElementById('formNome').value;
+            const falimento = document.getElementById('formAlimento').value;
+            const ftempo = document.getElementById('formTempo').value;
+            const fpotencia = document.getElementById('formPotencia').value;
+            const finstrucoes = document.getElementById('formInstrucoes').value;
+
+            const formData = new FormData();
+            formData.append('nome', fnome);
+            formData.append('alimento', falimento);
+            formData.append('tempo', ftempo);
+            formData.append('potencia', fpotencia);
+            formData.append('instrucoes', finstrucoes);
+
+            fetch('/aquecimento/programa', {method: 'POST', body: formData})
+                .then(res => res.json())
+                .then(() => {
+                    document.getElementById('formNome').value = '';
+                    document.getElementById('formAlimento').value = '';
+                    document.getElementById('formTempo').value = '';
+                    document.getElementById('formPotencia').value = '';
+                    document.getElementById('formInstrucoes').value = '';
+                    carregar();
+                    togglePersonalizados();
+                });
+        }
+
+        function atualizar(id, nome, email) {
+            const fnome = document.getElementById('formNome').value;
+            const falimento = document.getElementById('formAlimento').value;
+            const ftempo = document.getElementById('formTempo').value;
+            const fpotencia = document.getElementById('formPotencia').value;
+            const finstrucoes = document.getElementById('formInstrucoes').value;
+
+            const formData = new FormData();
+            formData.append('nome', fnome);
+            formData.append('alimento', falimento);
+            formData.append('tempo', ftempo);
+            formData.append('potencia', fpotencia);
+            formData.append('instrucoes', finstrucoes);
+
+            fetch('/aquecimento/programa/' + id + '/update', {method: 'POST', body: formData})
+                .then(res => res.json())
+                .then(() => {
+                    carregar();
+                    togglePersonalizados();
+                });
+        }
+
+        function deletar(id) {
+            fetch('/aquecimento/programa/' + id + '/delete', {method: 'POST', body: {}})
+                .then(res => res.json())
+                .then(() => carregar());
+        }
+
+        carregar();
     </script>
 {% endblock %}

@@ -23,3 +23,12 @@ if (!function_exists('DebugDump')) {
         }
     }
 }
+
+if (!function_exists('formataSegundos')) {
+    function formataSegundos($segundos)
+    {
+        $minutos = floor($segundos / 60);
+        $segundosRestantes = $segundos % 60;
+        return "{$minutos}:{$segundosRestantes}";
+    }
+}
